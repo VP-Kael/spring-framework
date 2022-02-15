@@ -401,6 +401,7 @@ class ConstructorResolver {
 		}
 		else {
 			Object[] argsToResolve = null;
+			// Level1
 			synchronized (mbd.constructorArgumentLock) {
 				factoryMethodToUse = (Method) mbd.resolvedConstructorOrFactoryMethod;
 				if (factoryMethodToUse != null && mbd.constructorArgumentsResolved) {
@@ -416,6 +417,7 @@ class ConstructorResolver {
 			}
 		}
 
+		// Level3 如果缓存没有就自己解析
 		if (factoryMethodToUse == null || argsToUse == null) {
 			// Need to determine the factory method...
 			// Try all methods with this name to see if they match the given arguments.
